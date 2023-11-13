@@ -21,3 +21,7 @@
     background-color: blue;
     border: 1px inset forestgreen;
 }
+
+#snake{
+    position: absolute;
+}
