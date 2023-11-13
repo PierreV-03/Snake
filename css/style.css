@@ -1,0 +1,23 @@
+#terrain {
+    height: 400px;
+    width: 400px;
+    background-color: black;
+}
+
+.block{
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+#snake .body block{
+    background-color: green;
+
+    border: 1px inset forestgreen;
+    
+}
+
+.bonus block{
+    background-color: blue;
+    border: 1px inset forestgreen;
+}
