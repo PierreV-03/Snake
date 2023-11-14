@@ -4,29 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <div id="terrain">
+
         <div id="snake">
           <div class="body block"></div>
-            <div class="body block"></div>
+        </div>
+        
             
 
-           <!-- autant de bouts de body block que nécessaire -->
-        </div>
+
+        <!--Bonus-->
         <div id="bonuses block">
-          <div class="bonus block"></div>
-           <div class="bonus block"></div>
-         </div>
+
+        </div>
+        
     </div>
 
     <script>
         let snake = document.querySelector('#snake');
+        let bonuses = document.querySelector("#bonuses");
+        let tail = document.querySelector(".body:last-child");
         snake.style.top = "200px";
         snake.style.left = "200px";
         setTimeout(moveTop, 1000);
+
+        //On gère les touches :
+            //event listener pour détecter une touche :
+            document.addEventListener("keydown", (event) => {
+                //On utilise un switch pour attribuer la fonction à la touche directionnelle;
+                switch(event.key){
+                    //dans le cas de la touche "haut" :
+                    case "ArrowUp" :
+                        //On lance la fonction vers le haut
+                        moveTop();
+                        break;
+                    case "ArrowDown":
+                        moveBottom();
+                        break;
+                    case "ArrowLeft":
+                        moveLeft();
+                        break;
+                    case "ArrowRight":
+                        moveRight();
+                        break;
+                }
+            })
 
         function incrementPosition(position){
             return parseInt(position) + 20 + "px";
@@ -53,6 +79,18 @@
             snake.style.top = incrementPosition(snake.style.top);
         }
 
+
+        function spawnBonus(){
+            //Fait apparaître un bonus sur la carte (une div)
+            let bonus = document.createElement('div');
+            //On attribut  la classe bonus à la div
+            bonus.classList.add('bonus');
+            //Position de la div bonus
+            const leftPosition = Math.random() * 200;
+            bonus.style.left = "120px";
+            bonus.style.top = "120px";
+            bonuses.append(bonus);
+        }
 
 
     </script>
