@@ -26,6 +26,35 @@
         let snake = document.querySelector('#snake');
         snake.style.top = "200px";
         snake.style.left = "200px";
+        setTimeout(moveTop, 1000);
+
+        function incrementPosition(position){
+            return parseInt(position) + 20 + "px";
+        }
+
+        function decrementPosition(position){
+            return parseInt(position) - 20 + "px";
+        }
+
+        function moveTop(){
+            snake.style.top = decrementPosition(snake.style.top); 
+        }
+
+        function moveLeft(){
+            snake.style.left = decrementPosition(snake.style.left);
+        }
+
+        function moveRight(){ 
+            snake.style.left = incrementPosition(snake.style.left);
+
+        }
+
+        function moveBottom(){
+            snake.style.top = incrementPosition(snake.style.top);
+        }
+
+
+
     </script>
 </body>
 </html>
