@@ -17,8 +17,7 @@
 }
 
 .bonus {
-    background-color: red;
-    border: 1px inset forestgreen;
+    background-color: red;;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -32,4 +31,5 @@
 #bonuses{
     height: 400px;
     width: 400px;
+    position: relative;
 }

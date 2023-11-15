@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="main.js" defer></script>
+    <script src="main.js" ></script>
 </head>
 <body>
     <div id="terrain">
-
         <div id="snake">
-          <div class="body block"></div>
+            <div class="body block"></div>
         </div>
         
             
 
 
         <!--Bonus-->
-        <div id="bonuses block">
+        <div id="bonuses">
 
         </div>
         
@@ -28,6 +27,7 @@
         let snake = document.querySelector('#snake');
         let bonuses = document.querySelector("#bonuses");
         let tail = document.querySelector(".body:last-child");
+        let head = document.querySelector(".body:first-child");
         snake.style.top = "200px";
         snake.style.left = "200px";
         setTimeout(moveTop, 1000);
@@ -78,17 +78,26 @@
         function moveBottom(){
             snake.style.top = incrementPosition(snake.style.top);
         }
-
+        spawnBonus();
 
         function spawnBonus(){
             //Fait apparaître un bonus sur la carte (une div)
-            let bonus = document.createElement('div');
+            let bonus = document.createElement("div");
             //On attribut  la classe bonus à la div
-            bonus.classList.add('bonus');
+            bonus.classList.add("bonus");
             //Position de la div bonus
-            const leftPosition = Math.random() * 200;
-            bonus.style.left = "120px";
-            bonus.style.top = "120px";
+            let leftPosition = Math.floor(Math.random() * 20) * 10;
+            let topPosition = Math.floor(Math.random() * 20) * 10;
+            while (leftPosition % 20 !== 0){
+                leftPosition = Math.floor(Math.random() * 20) * 10;
+            }while (topPosition % 20 !== 0){
+                topPosition = Math.floor(Math.random() * 20) * 10;
+            }
+
+            bonus.style.left = leftPosition + "px";
+            bonus.style.top = topPosition + "px";
+
+
             bonuses.append(bonus);
         }
 
